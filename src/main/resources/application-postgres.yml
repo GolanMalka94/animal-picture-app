@@ -1,0 +1,10 @@
+# Profile "postgres": used by docker compose. Connection settings can be overridden with
+# SPRING_DATASOURCE_URL / SPRING_DATASOURCE_USERNAME / SPRING_DATASOURCE_PASSWORD.
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/animal_pictures
+    username: animals
+    password: animals
+  h2:
+    console:
+      enabled: false

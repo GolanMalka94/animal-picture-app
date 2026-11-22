@@ -1,0 +1,19 @@
+# Build output
+target/
+
+# Local H2 database created by the non-containerized run
+data/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.zip

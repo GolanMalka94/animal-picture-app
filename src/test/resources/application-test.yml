@@ -1,0 +1,7 @@
+# Tests use a fresh in-memory database.
+spring:
+  datasource:
+    url: jdbc:h2:mem:animal-pictures-test;DB_CLOSE_DELAY=-1
+  h2:
+    console:
+      enabled: false

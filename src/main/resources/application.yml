@@ -1,0 +1,46 @@
+# Default profile: embedded H2 database stored in ./data (no local setup needed).
+spring:
+  application:
+    name: animal-picture-app
+  datasource:
+    url: jdbc:h2:file:./data/animal-pictures;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+server:
+  port: ${PORT:8080}
+
+app:
+  picture-sources:
+    # A random size between min-size and max-size is used per request, so every call returns a different picture.
+    min-size: 200
+    max-size: 500
+    connect-timeout: 5s
+    read-timeout: 15s
+    urls:
+      # placekitten.com is offline, so cats come from cataas.com (listed in public-apis).
+      cat: https://cataas.com/cat?width={width}&height={height}
+      dog: https://place.dog/{width}/{height}
+      bear: https://placebear.com/{width}/{height}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
