@@ -25,7 +25,7 @@ services:
       SPRING_DATASOURCE_USERNAME: animals
       SPRING_DATASOURCE_PASSWORD: animals
     ports:
-      - "8080:8080"
+      - "${APP_PORT:-8080}:8080"
 
 volumes:
   db-data:

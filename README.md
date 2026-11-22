@@ -15,6 +15,9 @@ docker compose up --build
 
 This starts the app together with a PostgreSQL database. Open http://localhost:8080.
 
+If port 8080 is already in use, pick another one, e.g. `APP_PORT=8081 docker compose up --build`
+(PowerShell: `$env:APP_PORT=8081; docker compose up --build`).
+
 ### Without Docker
 
 Requires JDK 21. Maven is downloaded automatically by the wrapper.
@@ -24,7 +27,7 @@ Requires JDK 21. Maven is downloaded automatically by the wrapper.
 ```
 
 On Windows use `mvnw.cmd spring-boot:run`. The app uses an embedded H2 database stored in `./data`,
-so nothing else needs to be installed.
+so nothing else needs to be installed. To use another port: `./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=8081`.
 
 To build a jar instead:
 
